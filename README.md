@@ -1,4 +1,4 @@
-<img src='https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif' alt='Hi' width="28"/> Hey World! I'm **雷克斯 (kidcrazequ)**, a Full-Stack Developer passionate about building efficient and elegant solutions. **Creator of ai-workflow-agents | astra** with Java, Python & Go. <!-- github_stats starts -->1 followers, 0 stars, 1 forks<!-- github_stats ends --> across code projects.
+<img src='https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif' alt='Hi' width="28"/> Hey World! I'm **雷克斯 (kidcrazequ)**, a Full-Stack Developer passionate about building efficient and elegant solutions. **Creator of ai-workflow-agents | astra** with Java, Python & Go. <!-- github_stats starts -->1 followers, 2 stars, 1 forks<!-- github_stats ends --> across code projects.
 
 <table width="960px" cellspacing="0" cellpadding="0">
 <tr>
