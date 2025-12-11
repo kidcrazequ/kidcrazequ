@@ -1,0 +1,7 @@
+# GitHub Profile README 自动更新脚本依赖
+# @author: zhi.qu
+# @date: 2025-12-11
+
+requests>=2.25.0
+PyGithub>=1.55
+

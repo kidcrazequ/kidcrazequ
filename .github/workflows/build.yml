@@ -1,0 +1,67 @@
+# GitHub Profile README 自动更新工作流
+# 
+# 该工作流会定时运行 Python 脚本来更新 README 中的内容
+# 包括：最新 Releases、GitHub 统计信息等
+#
+# @author: zhi.qu
+# @date: 2025-12-11
+
+name: Build README
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # 支持手动触发
+  schedule:
+    - cron: '0 */6 * * *'  # 每6小时运行一次
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 检出代码
+      - name: Check out repo
+        uses: actions/checkout@v4
+      
+      # 设置 Python 环境
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      # 配置 pip 缓存
+      - name: Configure pip caching
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      
+      # 安装 Python 依赖
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+      
+      # 运行脚本更新 README
+      - name: Update README
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          python build_readme.py
+          cat README.md
+      
+      # 提交并推送更改
+      - name: Commit and push if changed
+        run: |
+          git diff
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git pull
+          git add -A
+          git commit -m "chore: 自动更新 README 内容" || exit 0
+          git push
+
