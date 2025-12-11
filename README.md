@@ -22,7 +22,7 @@
 **Featured Projects**
 
 - [ai-workflow-agents](https://github.com/kidcrazequ/ai-workflow-agents) - AI Workflow Agents
-- [astra](https://github.com/kidcrazequ/astra) - Astra Project
+- [astra](https://github.com/kidcrazequ/astra) - AI 驱动的企业代码理解与知识系统
 
 </td>
 </tr>
