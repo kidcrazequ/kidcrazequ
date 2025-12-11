@@ -56,10 +56,13 @@ jobs:
       
       # 提交并推送更改
       - name: Commit and push if changed
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git diff
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
           git pull
           git add -A
           git commit -m "chore: 自动更新 README 内容" || exit 0
